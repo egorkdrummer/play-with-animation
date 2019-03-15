@@ -32,6 +32,7 @@ export default {
 .lang-switcher {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 
   &__item {
     list-style: none;

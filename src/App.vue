@@ -1,14 +1,25 @@
 <template lang="pug">
-#app
-  app-header
+#app(:style="{paddingTop}")
+  app-header(@app-padding-top="setAppPaddingTop")
   router-view
 </template>
 
 <script>
 import AppHeader from "@/components/AppHeader";
 export default {
+  name: "app",
   components: {
     AppHeader
+  },
+  data() {
+    return {
+      paddingTop: ""
+    };
+  },
+  methods: {
+    setAppPaddingTop(val) {
+      this.paddingTop = val;
+    }
   }
 };
 </script>
@@ -20,5 +31,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
 }
 </style>

@@ -1,8 +1,9 @@
 <template lang="pug">
-header
-  app-logo
-  main-nav  
-  lang-switcher
+header(ref="header")
+  .container
+    app-logo
+    main-nav  
+    lang-switcher
 </template>
 
 <script>
@@ -19,6 +20,33 @@ export default {
   },
   data() {
     return {};
+  },
+  methods: {
+    getHeaderHeight() {
+      const header = this.$refs.header;
+      const { height } = getComputedStyle(header);
+      this.$emit("app-padding-top", height);
+    }
+  },
+  mounted() {
+    window.addEventListener("resize", this.getHeaderHeight, false);
+    this.getHeaderHeight();
   }
 };
 </script>
+
+<style lang="scss">
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  padding: 0 2em;
+}
+</style>
