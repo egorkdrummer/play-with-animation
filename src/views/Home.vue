@@ -1,15 +1,15 @@
 <template lang="pug">
 #home
-  p Home content
+  progress-diagram
 </template>
 
 <script>
 import AppHeader from "@/components/AppHeader";
-
+import ProgressDiagram from "@/components/ProgressDiagram";
 export default {
   name: "home",
   components: {
-    AppHeader
+    ProgressDiagram
   }
 };
 </script>
